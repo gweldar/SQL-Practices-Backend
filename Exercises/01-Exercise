@@ -1,0 +1,17 @@
+select
+	cliente,
+	fecha_pago,
+	importe,
+	total_gastado,
+	total_alquileres
+from(
+	select
+		customer_id as cliente,
+		payment_date as fecha_pago,
+		amount as importe,
+		row_number() over (partition by customer_id order by payment_date desc) as importe_anterior,
+		sum(amount) over (partition by customer_id order by payment_date asc) as total_gastado,
+		count(rental_id) over (partition by customer_id order by customer_id asc) as total_alquileres
+	from payment
+) as subconsulta_gastos
+where importe < 3 and total_alquileres >= 30 and importe_anterior = 1  
