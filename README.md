@@ -20,6 +20,10 @@ This repository contains a collection of complex SQL queries, relational data mo
 - Data windowing using `OVER()` and partition resets via `PARTITION BY`.
 - Ranking techniques: `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()`.
 - Filtered windowing through derived tables (subqueries applied to window results).
+5. Time Series & Lag/Lead Analysis
+- Advanced window functions: `LAG()` and `LEAD()`.
+- Period-over-period comparison (MoM, YoY) for business logic.
+- Running totals and sequential data analysis.
 
 Tools Used
 - MySQL
